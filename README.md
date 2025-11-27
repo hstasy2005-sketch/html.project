@@ -2,4 +2,4 @@
 ## Проект
 Этот репозиторий является каркасом для будущего веб-приложения.
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://hstasy2005-sketch.github.io/html.project/)
+- Публичная страница на GitHub Pages - https://hstasy2005-sketch.github.io/html.project/
