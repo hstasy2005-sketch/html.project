@@ -1,53 +1,553 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт</title>
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <title>Revo Coffee Việt Nam - 2018</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: #fefefe;
+        }
+        
+        /* Шапка */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #8B4513;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            max-height: 60px;
+        }
+        
+        /* Навигация */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #D2691E;
+            text-decoration: underline;
+        }
+        
+        /* Основной контент */
+        main {
+            margin: 40px 0;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h1, h2, h3 {
+            color: #5D2906;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            font-size: 2em;
+            border-left: 5px solid #8B4513;
+            padding-left: 15px;
+            margin: 30px 0;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+            color: #8B4513;
+        }
+        
+        /* Блок giftset */
+        .giftset {
+            background: linear-gradient(135deg, #FFF8DC 0%, #F5DEB3 100%);
+            border-radius: 15px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
+        }
+        
+        .giftset-image {
+            flex: 1;
+            max-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .giftset-content {
+            flex: 2;
+        }
+        
+        .giftset-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Спецификации giftset */
+        .specs {
+            display: flex;
+            gap: 40px;
+            margin: 25px 0;
+        }
+        
+        .spec-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Цены и кнопки */
+        .price {
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.8em;
+            margin: 20px 0;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        button {
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background-color: #A0522D;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(139, 69, 19, 0.2);
+        }
+        
+        button.secondary {
+            background-color: transparent;
+            color: #8B4513;
+            border: 2px solid #8B4513;
+        }
+        
+        button.secondary:hover {
+            background-color: #8B4513;
+            color: white;
+        }
+        
+        /* Карточки товаров */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        /* Секция Your Personalized Coffee */
+        .personalized {
+            background-color: #FAF3E0;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            color: #8B4513;
+            margin-bottom: 15px;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: #5D2906;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #F5DEB3;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: #D2B48C;
+            font-size: 0.9em;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .giftset {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .giftset-image {
+                max-width: 100%;
+            }
+            
+            .specs {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
-
 <body>
     <header>
-        <div>
-            <h1>МойСайт</h1>
-        </div>
+        <!-- ЛОГОТИП: Добавьте файл logo.png в папку assets/img -->
+        <img src="assets/img/logo.png" alt="Логотип Revo Coffee Việt Nam" class="logo">
+        
         <nav>
             <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#home">TRANG CHỦ</a></li>
+                <li><a href="#giftset">GIFTSET</a></li>
+                <li><a href="#combo">COMBO PHIN PHÊ</a></li>
+                <li><a href="#coffee">COFFEE</a></li>
+                <li><a href="#contact">LIÊН HỆ</a></li>
             </ul>
         </nav>
     </header>
+    
     <main>
-        <section id="home">
-            <h2>Добро пожаловать!</h2>
-            <p>Это главная страница нашего веб-приложения.</p>
+        <!-- GIFTSET СЕКЦИЯ -->
+        <section id="giftset">
+            <h2>GIFTSET — Best Gift For Best Friend</h2>
+            
+            <div class="giftset">
+                <!-- ИЗОБРАЖЕНИЕ GIFTSET: Добавьте giftset.jpg в assets/img -->
+                <div class="giftset-image">
+                    <img src="assets/img/giftset.jpg" alt="Giftset «Cà phê phin Việt Nam»">
+                </div>
+                
+                <div class="giftset-content">
+                    <h3>Giftset «Cà phê phin Việt Nam»</h3>
+                    <p>Мón quà tuyệt vời dành cho người sành cà phê. Hạt cà phê được Revo cẩn trọng chọn lựa, rang xay theo công nghệ và bí quyết học hỏi từ những nghệ nhân nổi tiếng, cùng với tình yêu, sự đam mê của người làm cà phê… tạo ra những tách cà phê tinh khiết chỉ dành riêng cho bạn.</p>
+                    
+                    <div class="specs">
+                        <div class="spec-item">
+                            <h4>Высота</h4>
+                            <p>700–800 м</p>
+                        </div>
+                        <div class="spec-item">
+                            <h4>Тип зёрен</h4>
+                            <p>Fine Robusta Blend</p>
+                        </div>
+                    </div>
+                    
+                    <p class="price">285.000 ₫</p>
+                    
+                    <div class="buttons">
+                        <button>MUA NGAY</button>
+                        <button class="secondary">CHI TIẾT</button>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="about">
-            <h2>О нас</h2>
-            <p>Мы компания, которая занимается созданием качественных веб-решений.
-            </p>
+        
+        <!-- COMBO PHIN PHÊ СЕКЦИЯ -->
+        <section id="combo">
+            <h2>COMBO PHIN PHÊ — Your Personalized Coffee</h2>
+            
+            <div class="products">
+                <!-- COMBO 1: Добавьте combo1.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/combo1.jpg" alt="Combo Revo Đậm Đà">
+                    </div>
+                    <div class="product-content">
+                        <h3>Combo Revo Đậm Đà</h3>
+                        <p>Hàm lượng caffein trong Revo Đậm Đà đủ mạnh để làm bạn tỉnh táo làm việc...</p>
+                        <p class="price">147.000 ₫ <span class="old-price">155.000 ₫</span></p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- COMBO 2: Добавьте combo2.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/combo2.jpg" alt="Combo Revo Everyday">
+                    </div>
+                    <div class="product-content">
+                        <h3>Combo Revo Everyday</h3>
+                        <p>Revo Everyday được phối trộn giữa vị đắng của hạt Robusta và hương thơm...</p>
+                        <p class="price">156.000 ₫ <span class="old-price">165.000 ₫</span></p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- COMBO 3: Добавьте combo3.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/combo3.jpg" alt="Combo Revo Honey">
+                    </div>
+                    <div class="product-content">
+                        <h3>Combo Revo Honey</h3>
+                        <p>Honey – trong tên gọi Revo Honey đến từ phương pháp chế biến hạt Arabica...</p>
+                        <p class="price">275.000 ₫ <span class="old-price">260.000 ₫</span></p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- COMBO 4: Добавьте combo4.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/combo4.jpg" alt="Combo Revo Natural">
+                    </div>
+                    <div class="product-content">
+                        <h3>Combo Revo Natural</h3>
+                        <p>Revo Natural - hương vị tự nhiên, nguyên bản của hạt cà phê Việt Nam.</p>
+                        <p class="price">249.000 ₫</p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
-        <section id="services">
-            <h2>Наши услуги</h2>
-            <ul>
-                <li>Веб-разработка</li>
-                <li>Дизайн</li>
-                <li>Консультации</li>
-            </ul>
+        
+        <!-- COFFEE СЕКЦИЯ -->
+        <section id="coffee">
+            <h2>CHOOSE YOUR FAVORITE — Выберите свой любимый вкус</h2>
+            
+            <div class="products">
+                <!-- COFFEE 1: Добавьте coffee1.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/coffee1.jpg" alt="REVO Morning">
+                    </div>
+                    <div class="product-content">
+                        <h3>REVO Morning</h3>
+                        <p>Đắng, hậu ngọt, hương hoa (Горький, сладкое послевкусие, цветочный аромат)</p>
+                        <p class="price">99.000 ₫</p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- COFFEE 2: Добавьте coffee2.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/coffee2.jpg" alt="REVO Everyday">
+                    </div>
+                    <div class="product-content">
+                        <h3>REVO Everyday</h3>
+                        <p>Cân bằng, hậu đắng, vị chocolate (Сбалансированный, горькое послевкусие, вкус шоколада)</p>
+                        <p class="price">85.000 ₫</p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- COFFEE 3: Добавьте coffee3.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/coffee3.jpg" alt="REVO Origin">
+                    </div>
+                    <div class="product-content">
+                        <h3>REVO Origin</h3>
+                        <p>Hậu ngọt, ít đắng, vị chua dâu (Сладкое послевкусие, небольшая горечь, кислинка клубники)</p>
+                        <p class="price">139.000 ₫</p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- COFFEE 4: Добавьте coffee4.jpg в assets/img -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="assets/img/coffee4.jpg" alt="REVO Đậm Đà">
+                    </div>
+                    <div class="product-content">
+                        <h3>REVO Đậm Đà</h3>
+                        <p>Đậm đà, đắng, truyền thống (Насыщенный, горький, традиционный)</p>
+                        <p class="price">75.000 ₫</p>
+                        <div class="buttons">
+                            <button>MUA NGAY</button>
+                            <button class="secondary">CHI TIẾT</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
-        <section id="contact">
-            <h2>Контакты</h2>
-            <p>Email: info@example.com</p>
-            <p>Телефон: +7 (123) 456-78-90</p>
+        
+        <!-- PERSONALIZED COFFEE СЕКЦИЯ -->
+        <section class="personalized">
+            <h2>COFFEE BUILD YOUR BASE — Your Personalized Coffee</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Nguồn gốc</h3>
+                    <p>Những hạt cà phê Arabica, Robusta đạt chất lượng theo tiêu chuẩn quốc tế.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">☕</div>
+                    <h3>Các loại hạt</h3>
+                    <p>70% chất lượng tách cà phê đến từ nguồn gốc và chất lượng green bean.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Chất lượng</h3>
+                    <p>Từng một hạt cà phê là cả một quá trình tập trung cao độ của nghệ nhân cà phê.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Pha chế</h3>
+                    <p>Những hạt cà phê được lột xác qua quá trình rang xay kỹ lưỡng và nghiêm ngặt.</p>
+                </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Сайт. Все права защищены.</p>
+    
+    <footer id="contact">
+        <div class="footer-links">
+            <a href="#"><img src="assets/icons/phin-icon.svg" alt="Phin Mà Màu" height="30"> PHIN MẠ MÀU</a>
+            <a href="#combo">COMBO PHIN PHÊ</a>
+            <a href="#giftset">GIFTSET</a>
+            <a href="#contact">LIÊN HỆ</a>
+            <a href="#home">TRANG CHỦ</a>
+        </div>
+        
+        <h3 style="color: #F5DEB3; margin: 30px 0;">YOUR PERSONALIZED COFFEE</h3>
+        
+        <div class="copyright">
+            <p>© Revo Coffee Việt Nam — 2018</p>
+            <p>Все права защищены. Копирование материалов только с разрешения правообладателя.</p>
+        </div>
     </footer>
 </body>
 </html>
