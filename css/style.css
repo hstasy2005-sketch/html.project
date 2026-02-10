@@ -63,6 +63,11 @@ body {
     padding: 0 20px;
 }
 
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Header */
 .header {
     display: flex;
@@ -133,12 +138,23 @@ body {
     margin-bottom: var(--spacing-xl);
 }
 
-/* Features */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-xl);
+/* Features - Две строки по 2 пункта */
+.hero__features {
     margin-top: var(--spacing-xl);
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.features__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
 }
 
 .features__item {
@@ -151,6 +167,10 @@ body {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-light);
     transition: all var(--transition-normal);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .feature:hover {
@@ -159,12 +179,15 @@ body {
 }
 
 .feature__icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin: 0 auto var(--spacing-md);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--color-light);
+    border-radius: 50%;
+    padding: var(--spacing-sm);
 }
 
 .feature__img {
@@ -182,6 +205,7 @@ body {
 .feature__text {
     font-size: 0.95em;
     line-height: 1.5;
+    flex-grow: 1;
 }
 
 /* Products sections */
@@ -509,6 +533,20 @@ body {
         gap: var(--spacing-md);
     }
     
+    .features__row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .feature__icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .feature {
+        padding: var(--spacing-md);
+    }
+    
     .giftset-section__item {
         flex-direction: column;
         text-align: center;
@@ -528,10 +566,6 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .features {
-        grid-template-columns: 1fr;
-    }
-    
     .footer__links {
         flex-direction: column;
         gap: var(--spacing-md);
@@ -548,5 +582,26 @@ body {
     
     .button {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .features {
+        gap: var(--spacing-md);
+    }
+    
+    .feature__icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .hero__title {
+        font-size: 1.8em;
+    }
+    
+    .products-section__title,
+    .giftset-section__title,
+    .combos-section__title {
+        font-size: 1.6em;
     }
 }
