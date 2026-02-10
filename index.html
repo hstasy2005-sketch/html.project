@@ -125,9 +125,18 @@
         }
 
         .feature-icon {
-            font-size: 2.5em;
-            color: #8B4513;
-            margin-bottom: 15px;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         /* Продукты */
@@ -356,25 +365,33 @@
 
         <div class="features">
             <article class="feature">
-                <div class="feature-icon">🌱</div>
+                <div class="feature-icon">
+                    <img src="assets/icons/origin-icon.png" alt="Иконка происхождения">
+                </div>
                 <h3>Происхождение</h3>
                 <p>Зёрна арабики и робусты высшего качества, соответствующие международным стандартам.</p>
             </article>
 
             <article class="feature">
-                <div class="feature-icon">⭐</div>
+                <div class="feature-icon">
+                    <img src="assets/icons/quality-icon.png" alt="Иконка качества">
+                </div>
                 <h3>Качество</h3>
                 <p>Каждое зёрнышко — это результат кропотливой работы опытных мастеров кофе.</p>
             </article>
 
             <article class="feature">
-                <div class="feature-icon">☕</div>
+                <div class="feature-icon">
+                    <img src="assets/icons/beans-icon.png" alt="Иконка видов зёрен">
+                </div>
                 <h3>Виды зёрен</h3>
                 <p>70% качества чашки кофе зависит от происхождения и качества зелёных зёрен.</p>
             </article>
 
             <article class="feature">
-                <div class="feature-icon">🔥</div>
+                <div class="feature-icon">
+                    <img src="assets/icons/roast-icon.png" alt="Иконка обжарки">
+                </div>
                 <h3>Обжарка</h3>
                 <p>Зёрна проходят тщательный процесс обжарки по строгим стандартам.</p>
             </article>
