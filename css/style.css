@@ -605,3 +605,239 @@ html {
         font-size: 1.6em;
     }
 }
+
+/* Улучшаем навигацию для планшетов и телефонов */
+@media (max-width: 992px) {
+    .nav__list {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav__list {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    .nav__link {
+        display: block;
+        padding: var(--spacing-sm);
+        border: 1px solid var(--color-light-2);
+        border-radius: var(--radius-md);
+    }
+
+    .nav__link:hover {
+        background-color: var(--color-light);
+        transform: none;
+    }
+}
+
+/* Улучшаем Grid-сетку */
+.products-section__grid,
+.combos-section__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Десктоп: 3 колонки */
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    transition: grid-template-columns var(--transition-slow);
+}
+
+@media (max-width: 992px) {
+    .products-section__grid,
+    .combos-section__grid {
+        grid-template-columns: repeat(2, 1fr); /* Планшет: 2 колонки */
+    }
+}
+
+@media (max-width: 768px) {
+    .products-section__grid,
+    .combos-section__grid {
+        grid-template-columns: 1fr; /* Мобильные: 1 колонка */
+    }
+}
+
+/* Masonry секция */
+.masonry-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.masonry-section__title {
+    font-size: 2em;
+    color: var(--color-primary-dark);
+    border-left: 5px solid var(--color-primary);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.masonry-section__container {
+    column-count: 3;
+    column-gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.masonry-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--color-light-2);
+    transition: transform var(--transition-normal);
+    break-inside: avoid;
+}
+
+.masonry-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.masonry-item--short {
+    min-height: 150px;
+}
+
+.masonry-item--tall {
+    min-height: 250px;
+}
+
+.masonry-item--very-tall {
+    min-height: 350px;
+}
+
+.masonry-item__title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Адаптивность Masonry */
+@media (max-width: 992px) {
+    .masonry-section__container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-section__container {
+        column-count: 1;
+    }
+}
+
+/* ========== Desktop First медиазапросы ========== */
+
+/* Ноутбуки (меньше 1200px) */
+@media (max-width: 1199px) {
+    body {
+        max-width: 1000px;
+        padding: 0 var(--spacing-lg);
+    }
+
+    .hero__title {
+        font-size: 2.5em;
+    }
+}
+
+/* Планшеты (меньше 992px) */
+@media (max-width: 991px) {
+    .features__row {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__title {
+        font-size: 2.2em;
+    }
+
+    .product-card__buttons,
+    .giftset__buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* Мобильные в альбомной ориентации (меньше 768px) */
+@media (max-width: 767px) {
+    .header {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .nav__list {
+        gap: var(--spacing-sm);
+    }
+
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+
+    .hero__title {
+        font-size: 1.8em;
+    }
+
+    .hero__subtitle {
+        font-size: 1em;
+    }
+
+    .products-section__title,
+    .giftset-section__title,
+    .combos-section__title,
+    .masonry-section__title {
+        font-size: 1.6em;
+    }
+}
+
+/* Мобильные (меньше 576px) */
+@media (max-width: 575px) {
+    body {
+        padding: 0 var(--spacing-md);
+    }
+
+    .hero__title {
+        font-size: 1.5em;
+    }
+
+    .feature__title {
+        font-size: 1.2em;
+    }
+
+    .feature__text {
+        font-size: 0.9em;
+    }
+
+    .product-card__title,
+    .giftset__title {
+        font-size: 1.3em;
+    }
+
+    .product-card__text,
+    .giftset__text {
+        font-size: 0.9em;
+    }
+}
+
+/* Очень маленькие экраны (меньше 400px) */
+@media (max-width: 399px) {
+    body {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .hero__title {
+        font-size: 1.3em;
+    }
+
+    .feature {
+        padding: var(--spacing-sm);
+    }
+
+    .product-card__content,
+    .giftset__content {
+        padding: var(--spacing-sm);
+    }
+
+    .footer__links {
+        gap: var(--spacing-sm);
+    }
+}
