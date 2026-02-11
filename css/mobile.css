@@ -1,0 +1,176 @@
+/* ========== МОБИЛЬНЫЕ СТИЛИ ========== */
+
+/* Планшет (1024px и меньше) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .header__inner {
+        padding: 15px 0;
+    }
+
+    .nav__list {
+        gap: 20px;
+    }
+
+    .header__cta {
+        display: none; /* Скрываем СТА на планшетах */
+    }
+}
+
+/* Планшет и мобильные (768px и меньше) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Показываем гамбургер */
+    }
+
+    /* Основная навигация (скрыта по умолчанию) */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--color-white);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 80px 30px 30px;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav__item {
+        width: 100%;
+    }
+
+    .nav__link {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 18px; /* Увеличиваем для мобильных */
+        border-bottom: 1px solid var(--color-light-2);
+        text-align: left;
+    }
+
+    .nav__link:hover,
+    .nav__link.active {
+        background: transparent;
+        color: var(--color-primary);
+        padding-left: 10px;
+    }
+
+    /* Затемнение фона при открытом меню */
+    .nav-overlay.active {
+        display: block;
+    }
+
+    /* Увеличиваем touch-зоны для кнопок */
+    .btn {
+        min-width: 120px;
+        min-height: 44px;
+    }
+
+    /* Адаптация остальных элементов */
+    .header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    .features__row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .feature__icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .feature {
+        padding: var(--spacing-md);
+    }
+
+    .giftset-section__item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .giftset__image {
+        max-width: 100%;
+    }
+
+    .giftset__specs {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .products-section__grid,
+    .combos-section__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__links {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .hero__title {
+        font-size: 2em;
+    }
+
+    .product-card__buttons,
+    .giftset__buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+        min-height: 44px;
+    }
+}
+
+/* Мобильные (480px и меньше) */
+@media (max-width: 480px) {
+    .nav {
+        width: 100%;
+    }
+
+    .header__logo {
+        max-width: 100px;
+        height: auto;
+    }
+
+    body {
+        font-size: 17px; /* iOS рекомендация */
+    }
+
+    .features {
+        gap: var(--spacing-md);
+    }
+
+    .feature__icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .hero__title {
+        font-size: 1.8em;
+    }
+
+    .products-section__title,
+    .giftset-section__title,
+    .combos-section__title {
+        font-size: 1.6em;
+    }
+}
